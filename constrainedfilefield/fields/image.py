@@ -109,6 +109,7 @@ class ConstrainedImageField(models.ImageField):
                 mg = magic.Magic(mime=True, magic_file=magic_file_path)
             else:
                 mg = magic.Magic(mime=True)
+            file.open()
             content_type_magic = mg.from_buffer(file.read(self.mime_lookup_length))
             file.seek(0)
 
